@@ -9,9 +9,7 @@ const bookPages = document.querySelector("#bookPages");
 const bookIsRead = document.querySelector("#bookIsRead");
 const addBookBtn = document.querySelector("#addBookBtn");
 
-const test = document.querySelectorAll("#bookIsRead");
-
-let myLibrary = [
+const myLibrary = [
   {
     tittle: "In Search of Lost Time",
     author: "Marcel Proust",
@@ -64,18 +62,30 @@ function displayBooks() {
   library.innerHTML = "";
 
   for (let i = 0; i < l; i++) {
-    console.log(i);
-    library.innerHTML += `<div class="book">
-    <div class="tittle"><h2>${myLibrary[i].tittle}</h2></div>
-    <h3><span class="blueMark">Author: </span>${myLibrary[i].author}</h3>
-    <h3><span class="blueMark">Pages: </span>${myLibrary[i].pages}</h3>
-    <div class="row">
-      <div class="toggle-pill-dark">
-        <h3><span class="blueMark">Read:</span>
-        <input type="checkbox" id="bookIsRead${i}" name="check" checked="${myLibrary[i].isRead}">
-        <label for="bookIsRead${i}"></label>
-      </div>
-      <div class="deleteEntry"><button>Delete</button></div>`;
+    if (myLibrary[i].isRead == true) {
+      library.innerHTML += `<div class="book">
+      <div class="tittle"><h2>${myLibrary[i].tittle}</h2></div>
+      <h3><span class="blueMark">Author: </span>${myLibrary[i].author}</h3>
+      <h3><span class="blueMark">Pages: </span>${myLibrary[i].pages}</h3>
+      <div class="row">
+        <div class="toggle-pill-dark">
+          <h3><span class="blueMark">Read:</span>
+          <input type="checkbox" id="bookIsRead${i}" name="check" checked="${myLibrary[i].isRead}">
+          <label for="bookIsRead${i}"></label>
+        </div>
+        <div class="deleteEntry"><button>Delete</button></div>`;
+    } else {
+      library.innerHTML += `<div class="book">
+      <div class="tittle"><h2>${myLibrary[i].tittle}</h2></div>
+      <h3><span class="blueMark">Author: </span>${myLibrary[i].author}</h3>
+      <h3><span class="blueMark">Pages: </span>${myLibrary[i].pages}</h3>
+      <div class="row">
+        <div class="toggle-pill-dark">
+          <h3><span class="blueMark">Read:</span>
+          <input type="checkbox" id="bookIsRead${i}" name="check">
+          <label for="bookIsRead${i}"></label>
+        </div>
+        <div class="deleteEntry"><button>Delete</button></div>`;
+    }
   }
-  test = document.querySelectorAll("#bookIsRead");
 }
