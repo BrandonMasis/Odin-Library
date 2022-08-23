@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book library</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav>
+      <div></div>
+      <div class="navContainer">
+        <h1>MY LIBRARY</h1>
+        <button id="newBookBtn">
+          ADD A BOOK<i class="fa-solid fa-circle-plus"></i>
+        </button>
+      </div>
+      <div></div>
+    </nav>
+    <section id="main">
+      <div class="container">
+        <div class="library">
+          <div class="book">
+            <div class="tittle"><h2>Don quijote</h2></div>
+            <h3><span class="blueMark">Author:</span> Miguel de Cervantes</h3>
+            <h3><span class="blueMark">Author:</span> Miguel de Cervantes</h3>
+            <div class="row">
+              <div class="toggle-pill-dark">
+                <h3><span class="blueMark">Read:</span>
+                <input type="checkbox" id="bookIsRead" name="check" checked="true">
+                <label for="bookIsRead"></label>
+              </div>
+              <div class="deleteEntry"><button>Delete</button></div>
+          </div>
+        </div>
+      </div>
+      <!-- <button id="newBookBtn">New book</button>
+      <form action="" id="bookInfoForm">
+        <label for="bookTitle">Tittle:</label>
+        <input type="text" name="title" id="bookTitle" />
+        <label for="bookAuthor">Author:</label>
+        <input type="text" name="author" id="bookAuthor" />
+        <label for="bookPages">Pages:</label>
+        <input type="number" name="pages" id="bookPages" re />
+        <label for="bookIsRead">Have you read the book?</label>
+        <input type="checkbox" name="isRead" id="bookIsRead" />
+
+        <button type="button" id="addBookBtn">Add book</button>
+      </form> -->
+    </section>
+  </body>
+</html>
