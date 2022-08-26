@@ -14,7 +14,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-   
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
+    />
   </head>
   <body>
     <nav>
@@ -28,39 +31,22 @@
       <div></div>
     </nav>
     <section id="main">
+      <form action="" id="bookInfoForm" style="display: none">
+        <label for="bookTitle">Tittle:</label>
+        <input type="text" name="title" id="bookTitle" required />
+        <label for="bookAuthor">Author:</label>
+        <input type="text" name="author" id="bookAuthor" required />
+        <label for="bookPages">Pages:</label>
+        <input type="number" name="pages" id="bookPages" required />
+        <label for="bookIsRead">Have you read the book?</label>
+        <input type="checkbox" name="isRead" id="bookIsRead" />
 
+        <button type="button" id="addBookBtn">Add book</button>
+        <i class="fa-solid fa-xmark" id="closeForm"></i>
+      </form>
       <div class="container">
-        <form action="" id="bookInfoForm">
-          <label for="bookTitle">Tittle:</label>
-          <input type="text" name="title" id="bookTitle" />
-          <label for="bookAuthor">Author:</label>
-          <input type="text" name="author" id="bookAuthor" />
-          <label for="bookPages">Pages:</label>
-          <input type="number" name="pages" id="bookPages"  />
-          <label for="bookIsRead">Have you read the book?</label>
-          <input type="checkbox" name="isRead" id="bookIsRead" />
-  
-          <button type="button" id="addBookBtn">Add book</button>
-          <i class="fa-solid fa-xmark"></i>
-        </form>
-
-        <div class="library">
-          <div class="book">
-            <div class="tittle"><h2>Don quijote</h2></div>
-            <h3><span class="blueMark">Author:</span> Miguel de Cervantes</h3>
-            <h3><span class="blueMark">Author:</span> Miguel de Cervantes</h3>
-            <div class="row">
-              <div class="toggle-pill-dark">
-                <h3><span class="blueMark">Read:</span>
-                <input type="checkbox" id="bookIsRead" name="check" checked="false">
-                <label for="bookIsRead"></label>
-              </div>
-              <div class="deleteEntry"><button>Delete</button></div>
-          </div>
-        </div>
+        <div class="library"></div>
       </div>
-      
-   
     </section>
   </body>
 </html>
