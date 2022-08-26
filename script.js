@@ -81,8 +81,6 @@ newBookBtn.addEventListener("click", () => {
   } else {
     bookInfoForm.style.display = "flex";
   }
-
-  console.log("working");
 });
 
 function displayBooks() {
@@ -133,10 +131,6 @@ function displayBooks() {
   deleteEntry = document.querySelectorAll(".deleteEntry");
   deleteEntry.forEach((button) => {
     button.addEventListener("click", (e) => {
-      console.log(
-        button.parentElement.parentElement.getAttribute("data-index")
-      );
-
       let dataIndex =
         button.parentElement.parentElement.getAttribute("data-index");
 
