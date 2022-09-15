@@ -37,11 +37,13 @@ let myLibrary = [
 
 displayBooks();
 
-function Book(title, author, pages, isRead) {
-  this.tittle = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.tittle = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
 }
 
 function addBookToLibrary(title, author, pages, isRead) {
@@ -65,10 +67,11 @@ addBookBtn.addEventListener("click", () => {
       (bookAuthor.value = ""),
       (bookPages.value = ""),
       (bookIsRead.checked = "");
-  } else {
-    alert("Please fill out all the spaces");
+
+    displayBooks();
+    return;
   }
-  displayBooks();
+  alert("Please fill out all the spaces");
 });
 
 closeInfoForm.addEventListener("click", () => {
@@ -78,9 +81,9 @@ closeInfoForm.addEventListener("click", () => {
 newBookBtn.addEventListener("click", () => {
   if (bookInfoForm.style.display == "flex") {
     bookInfoForm.style.display = "none";
-  } else {
-    bookInfoForm.style.display = "flex";
+    return;
   }
+  bookInfoForm.style.display = "flex";
 });
 
 function displayBooks() {
@@ -108,16 +111,16 @@ function displayBooks() {
       library.innerHTML += `<div class="book"  data-index="${(myLibrary[
         i
       ].index = [i])}">
-      <div class="tittle"><h2>${myLibrary[i].tittle}</h2></div>
-      <h3><span class="blueMark">Author:</span>${myLibrary[i].author}</h3>
-      <h3><span class="blueMark">Pages:</span>${myLibrary[i].pages}</h3>
-      <div class="row">
-        <div class="toggle-pill-dark">
-          <h3><span class="blueMark">Read:</span>
-          <input type="checkbox" class="bookIsRead" id="bookIsRead${i}" name="check">
-          <label for="bookIsRead${i}"></label>
-        </div>
-        <div class="deleteEntry"><button>Delete</button></div>`;
+        <div class="tittle"><h2>${myLibrary[i].tittle}</h2></div>
+        <h3><span class="blueMark">Author:</span>${myLibrary[i].author}</h3>
+        <h3><span class="blueMark">Pages:</span>${myLibrary[i].pages}</h3>
+        <div class="row">
+          <div class="toggle-pill-dark">
+            <h3><span class="blueMark">Read:</span>
+            <input type="checkbox" class="bookIsRead" id="bookIsRead${i}" name="check">
+            <label for="bookIsRead${i}"></label>
+          </div>
+          <div class="deleteEntry"><button>Delete</button></div>`;
     }
   }
 
@@ -148,8 +151,8 @@ bookIsReadClass.forEach((checkbox) => {
       );
     if (myLibrary[dataIndex].isRead == false) {
       myLibrary[dataIndex].isRead = true;
-    } else {
-      myLibrary[dataIndex].isRead == false;
+      return;
     }
+    myLibrary[dataIndex].isRead == false;
   });
 });
