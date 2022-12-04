@@ -1,36 +1,36 @@
-const library = document.querySelector(".library");
+const library = document.querySelector('.library');
 
-const newBookBtn = document.querySelector("#newBookBtn");
+const newBookBtn = document.querySelector('#newBookBtn');
 
-const bookInfoForm = document.querySelector("#bookInfoForm");
-const closeInfoForm = document.querySelector("#closeForm");
+const bookInfoForm = document.querySelector('#bookInfoForm');
+const closeInfoForm = document.querySelector('#closeForm');
 
-const bookTitle = document.querySelector("#bookTitle");
-const bookAuthor = document.querySelector("#bookAuthor");
-const bookPages = document.querySelector("#bookPages");
-const bookIsRead = document.querySelector("#bookIsRead");
-const addBookBtn = document.querySelector("#addBookBtn");
-let deleteEntry = document.querySelectorAll(".deleteEntry");
+const bookTitle = document.querySelector('#bookTitle');
+const bookAuthor = document.querySelector('#bookAuthor');
+const bookPages = document.querySelector('#bookPages');
+const bookIsRead = document.querySelector('#bookIsRead');
+const addBookBtn = document.querySelector('#addBookBtn');
+let deleteEntry = document.querySelectorAll('.deleteEntry');
 
-let bookIsReadClass = document.querySelectorAll(".bookIsRead");
+let bookIsReadClass = document.querySelectorAll('.bookIsRead');
 
 let myLibrary = [
   {
-    tittle: "In Search of Lost Time",
-    author: "Marcel Proust",
-    pages: "4215",
+    tittle: 'In Search of Lost Time',
+    author: 'Marcel Proust',
+    pages: '4215',
     isRead: true,
   },
   {
-    tittle: "Don Quijote",
-    author: "Miguel de Cervantes",
-    pages: "1077",
+    tittle: 'Don Quijote',
+    author: 'Miguel de Cervantes',
+    pages: '1077',
     isRead: false,
   },
   {
-    tittle: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    pages: "180",
+    tittle: 'The Great Gatsby',
+    author: 'F. Scott Fitzgerald',
+    pages: '180',
     isRead: false,
   },
 ];
@@ -50,11 +50,11 @@ function addBookToLibrary(title, author, pages, isRead) {
   myLibrary.push(new Book(title, author, pages, isRead));
 }
 
-addBookBtn.addEventListener("click", () => {
+addBookBtn.addEventListener('click', () => {
   if (
-    bookTitle.checkValidity() == true &&
-    bookAuthor.checkValidity() == true &&
-    bookPages.checkValidity() == true
+    bookTitle.checkValidity() &&
+    bookAuthor.checkValidity() &&
+    bookPages.checkValidity()
   ) {
     addBookToLibrary(
       bookTitle.value,
@@ -63,32 +63,32 @@ addBookBtn.addEventListener("click", () => {
       bookIsRead.checked
     );
 
-    (bookTitle.value = ""),
-      (bookAuthor.value = ""),
-      (bookPages.value = ""),
-      (bookIsRead.checked = "");
+    (bookTitle.value = ''),
+      (bookAuthor.value = ''),
+      (bookPages.value = ''),
+      (bookIsRead.checked = '');
 
     displayBooks();
     return;
   }
-  alert("Please fill out all the spaces");
+  alert('Please fill out all the spaces');
 });
 
-closeInfoForm.addEventListener("click", () => {
-  bookInfoForm.style.display = "none";
+closeInfoForm.addEventListener('click', () => {
+  bookInfoForm.style.display = 'none';
 });
 
-newBookBtn.addEventListener("click", () => {
-  if (bookInfoForm.style.display == "flex") {
-    bookInfoForm.style.display = "none";
+newBookBtn.addEventListener('click', () => {
+  if (bookInfoForm.style.display == 'flex') {
+    bookInfoForm.style.display = 'none';
     return;
   }
-  bookInfoForm.style.display = "flex";
+  bookInfoForm.style.display = 'flex';
 });
 
 function displayBooks() {
   let l = myLibrary.length;
-  library.innerHTML = "";
+  library.innerHTML = '';
 
   for (let i = 0; i < l; i++) {
     if (myLibrary[i].isRead == true) {
@@ -124,18 +124,18 @@ function displayBooks() {
     }
   }
 
-  bookIsReadClass = document.querySelectorAll(".bookIsRead");
+  bookIsReadClass = document.querySelectorAll('.bookIsRead');
 
   for (let i = 0; i < myLibrary.length; i++) {
     myLibrary[i].index = i;
     //Is there another way to do this?
   }
 
-  deleteEntry = document.querySelectorAll(".deleteEntry");
+  deleteEntry = document.querySelectorAll('.deleteEntry');
   deleteEntry.forEach((button) => {
-    button.addEventListener("click", (e) => {
+    button.addEventListener('click', (e) => {
       let dataIndex =
-        button.parentElement.parentElement.getAttribute("data-index");
+        button.parentElement.parentElement.getAttribute('data-index');
 
       myLibrary.splice(dataIndex, 1);
       displayBooks();
@@ -144,10 +144,10 @@ function displayBooks() {
 }
 
 bookIsReadClass.forEach((checkbox) => {
-  checkbox.addEventListener("change", () => {
+  checkbox.addEventListener('change', () => {
     let dataIndex =
       checkbox.parentElement.parentElement.parentElement.parentElement.getAttribute(
-        "data-index"
+        'data-index'
       );
     if (myLibrary[dataIndex].isRead == false) {
       myLibrary[dataIndex].isRead = true;
